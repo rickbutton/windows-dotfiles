@@ -1,5 +1,5 @@
 set rtp+=~/.cache/fzf
-set rtp+=c:/git/dotfiles/neovim/config/bundle/Vundle.vim
+set rtp+=c:/git/dotfiles/vundle
 
 call vundle#begin()
 Plugin 'dracula/vim'
