@@ -29,7 +29,7 @@ let g:SuperTabContextDefaultCompletionType = "<C-x><C-o>"
 let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-let g:OmniSharp_server_path = 'c:\Users\rb\AppData\Local\nvim\omnisharp\OmniSharp.exe'
+let g:OmniSharp_server_path = 'c:\git\dotfiles\neovim\omnisharp\OmniSharp.exe'
 let g:OmniSharp_server_type = 'roslyn'
 let g:OmniSharp_timeout = 10
 let g:OmniSharp_selector_ui = 'fzf'
