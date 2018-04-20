@@ -38,3 +38,5 @@ if (test-path "c:/git")
 {
 	set-location "c:/git"
 }
+
+$env:Path += ";C:/git/dotfiles/gopass"
