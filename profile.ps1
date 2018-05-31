@@ -31,6 +31,9 @@ function nvim-edit-ps-profile
 	nvim "C:/git/dotfiles/profile.ps1"
 }
 
+$env:Path += ";C:/git/dotfiles/PortableGit/bin"
+$env:Path += ";C:\git\dotfiles\winpty\bin"
+
 import-module c:/git/dotfiles/posh-git/src/posh-git.psm1
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
@@ -38,3 +41,8 @@ if (test-path "c:/git")
 {
 	set-location "c:/git"
 }
+
+$env:Path += ";C:\git\dotfiles\rg"
+import-module c:/git/dotfiles/rg/_rg.ps1
+
+$env:FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"

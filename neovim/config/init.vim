@@ -11,8 +11,12 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'ervandew/supertab'
 Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimfiler.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 
 filetype plugin indent on
@@ -23,6 +27,8 @@ set number
 
 let g:python_host_prog = 'C:\Python27\python.exe'
 let g:python3_host_prog = 'C:\Python36-32\python.exe'
+
+let g:NERDTreeWinPos = "right"
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = "<C-x><C-o>"
@@ -59,6 +65,14 @@ augroup omnisharp_commands
     autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
 augroup END
 
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -66,14 +80,14 @@ nnoremap <C-H> <C-W><C-H>
 
 tnoremap <Esc> <C-\><C-N>
 
-nnoremap <leader>th :tabfirst<CR>
-nnoremap <leader>tj :tabnext<CR>
-nnoremap <leader>tk :tabprev<CR>
-nnoremap <leader>tl :tablast<CR>
-nnoremap <leader>tc :tabclose<CR>
-nnoremap <leader>te :tabedit<Space>
+nnoremap <leader>bb :enew<CR>
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
+nnoremap <leader>bc :bp<BAR> bd #<CR>
+nnoremap <leader>bl :ls<CR>
 
 nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fi :Rg<cr>
 
 nnoremap <leader>ss :OmniSharpStartServer<cr>
 nnoremap <leader>sp :OmniSharpStopServer<cr>
@@ -93,7 +107,12 @@ nnoremap <leader>nd :OmniSharpGotoDefinition<cr>
 nnoremap <leader>nj :OmniSharpNavigateDown<cr>
 nnoremap <leader>nk :OmniSharpNavigateUp<cr>
 
-nnoremap <leader>le :VimFilerExplorer<cr>
+nnoremap <leader>ot :NERDTreeToggle<cr>
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 syntax on
 set background=dark
