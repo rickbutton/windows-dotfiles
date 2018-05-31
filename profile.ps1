@@ -42,6 +42,8 @@ if (test-path "c:/git")
 	set-location "c:/git"
 }
 
+$env:Path += ";C:/git/dotfiles/gopass"
+
 $env:Path += ";C:\git\dotfiles\rg"
 import-module c:/git/dotfiles/rg/_rg.ps1
 
