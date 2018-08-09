@@ -1,6 +1,6 @@
 # Rick's Windows `dotfiles`
 
-These are my dotfiles for Windows. I use ConEmu with powershell, and neovim-qt.
+These are my dotfiles for Windows. I use ConEmu with powershell, and vscode.
 
 ### Why do you have binaries checked in, are you bad?
 
