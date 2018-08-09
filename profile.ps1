@@ -1,11 +1,19 @@
+$dotfilesRoot = "C:/git/dotfiles"
+$toolsRoot = $dotfilesRoot + "/tools"
+
+import-module "$dotfilesRoot/dot.ps1"
+
 function reload-profile
 {
-	import-module c:/git/dotfiles/profile.ps1 -force
+	remove-module "profile"
+	remove-module "dot"
+	import-module "$dotfilesRoot/profile.ps1" -force
+	import-module "$dotfilesRoot/dot.ps1" -force
 }
 
-$env:Path += ";C:/git/dotfiles/PortableGit/bin"
+$env:Path += ";$toolsRoot/PortableGit/bin"
 
-import-module c:/git/dotfiles/posh-git/src/posh-git.psm1
+import-module "$toolsRoot/posh-git/src/posh-git.psm1"
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
 if (test-path "c:/git")
@@ -13,9 +21,14 @@ if (test-path "c:/git")
 	set-location "c:/git"
 }
 
-$env:Path += ";C:/git/dotfiles/gopass"
+$env:Path += ";$toolsRoot/gopass"
 
-$env:Path += ";C:\git\dotfiles\rg"
-import-module c:/git/dotfiles/rg/_rg.ps1
+$env:Path += ";$toolsRoot/rg"
+import-module "$toolsRoot/rg/_rg.ps1"
 
 $env:FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
+
+$env:EDITOR="code --wait"
+
+
+"rb powershell profile loaded"
