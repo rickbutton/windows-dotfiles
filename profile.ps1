@@ -24,16 +24,20 @@ function Update-Dotfiles() {
 Add-Path -Directory "$toolsRoot/PortableGit/bin"
 Import-Module "$toolsRoot/posh-git/src/posh-git.psm1"
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
+###### end git
 
 ###### gopass
 Add-Path -Directory "$toolsRoot/gopass"
+###### end gopass
 
 ###### rg
 Add-Path -Directory "$toolsRoot/rg"
 $env:FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
+###### end rg
 
 ###### editor
 $env:EDITOR="code --wait"
+###### end editor
 
 if (!$env:INIT)
 {
