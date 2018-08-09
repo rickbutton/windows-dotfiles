@@ -1,4 +1,8 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+
 }
