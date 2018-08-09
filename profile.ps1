@@ -23,7 +23,10 @@ function Update-Dotfiles() {
 ###### git
 Add-Path -Directory "$toolsRoot/PortableGit/bin"
 Import-Module "$toolsRoot/posh-git/src/posh-git.psm1"
-Set-PSReadlineKeyHandler -Key Tab -Function Complete
+if (Get-Command "Set-PSReadlineKeyHandler" -ErrorAction SilentlyContinue)
+{
+	Set-PSReadlineKeyHandler -Key Tab -Function Complete
+}
 ###### end git
 
 ###### gopass
