@@ -32,7 +32,6 @@ function nvim-edit-ps-profile
 }
 
 $env:Path += ";C:/git/dotfiles/PortableGit/bin"
-$env:Path += ";C:\git\dotfiles\winpty\bin"
 
 import-module c:/git/dotfiles/posh-git/src/posh-git.psm1
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
