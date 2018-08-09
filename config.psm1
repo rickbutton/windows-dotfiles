@@ -1,5 +1,3 @@
-$dotfilesRoot = "$PSScriptRoot"
-
 function Get-DotFiles
 {
     @(
@@ -7,9 +5,4 @@ function Get-DotFiles
     )
 }
 
-$exportModuleMemberParams = @{
-    Function = @(
-        'Get-DotFiles'
-    )
-}
-Export-ModuleMember @exportModuleMemberParams
+Export-ModuleMember -Function Get-DotFiles
