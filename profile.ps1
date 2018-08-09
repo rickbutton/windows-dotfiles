@@ -1,4 +1,4 @@
-$dotfilesRoot = "C:/git/dotfiles"
+$dotfilesRoot = "$PSScriptRoot"
 $toolsRoot = $dotfilesRoot + "/tools"
 import-module "$dotfilesRoot/dot.psm1"
 import-module "$dotfilesRoot/config.psm1"
