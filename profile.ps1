@@ -42,6 +42,10 @@ $env:FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
 $env:EDITOR="code --wait"
 ###### end editor
 
+Add-Path -Directory "C:\Python36-32"
+Add-Path -Directory "C:\Python36-32\Scripts"
+Add-Path -Directory "$toolsRoot/ledger"
+
 if (!$env:INIT)
 {
 	if (Test-Path "C:/git")
