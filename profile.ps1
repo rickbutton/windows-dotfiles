@@ -46,6 +46,11 @@ Add-Path -Directory "C:\Python36-32"
 Add-Path -Directory "C:\Python36-32\Scripts"
 Add-Path -Directory "$toolsRoot/ledger"
 
+if (Test-Path "C:/git/dotfiles-work")
+{
+	. "C:/git/dotfiles-work/profile.ps1"
+}
+
 if (!$env:INIT)
 {
 	if (Test-Path "C:/git")
@@ -54,5 +59,6 @@ if (!$env:INIT)
 	}
 	"rb powershell profile loaded"
 }
+
 
 $env:INIT = $TRUE
