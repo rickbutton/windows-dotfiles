@@ -44,7 +44,7 @@ $env:EDITOR="code --wait"
 
 Add-Path -Directory "C:\Python36-32"
 Add-Path -Directory "C:\Python36-32\Scripts"
-Add-Path -Directory "$toolsRoot/ledger"
+Add-Path -Directory "$toolsRoot/hugo"
 
 if (!$env:INIT)
 {
