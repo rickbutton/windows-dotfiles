@@ -10,16 +10,24 @@
     λ <PostPrompt> |
 #>
 
-[ScriptBlock]$PrePrompt = {
-
-}
-
 # Replace the cmder prompt entirely with this.
-# [ScriptBlock]$CmderPrompt = {}
 
-[ScriptBlock]$PostPrompt = {
-
+[ScriptBlock]$CmderPrompt = {
+    $Host.UI.RawUI.ForegroundColor = "White"
+    Microsoft.PowerShell.Utility\Write-Host $pwd.ProviderPath -NoNewLine -ForegroundColor Green
+    checkGit($pwd.ProviderPath)
 }
+
+[ScriptBlock]$Prompt = {
+    $realLASTEXITCODE = $LASTEXITCODE
+    $host.UI.RawUI.WindowTitle = Microsoft.PowerShell.Management\Split-Path $pwd.ProviderPath -Leaf
+    CmderPrompt
+    Microsoft.PowerShell.Utility\Write-Host " => " -NoNewLine -ForegroundColor "DarkGray"
+    $global:LASTEXITCODE = $realLASTEXITCODE
+    return " "
+}
+
+
 
 ## <Continue to add your own>
 
