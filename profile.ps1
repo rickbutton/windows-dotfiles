@@ -27,7 +27,10 @@ function Get-ScoopPackages {
 		"posh-git",
 		"conemu",
 		"openssh",
-		"vscode"
+		"vscode",
+		"python27",
+		"python",
+		"winmerge"
     )
 }
 
@@ -53,7 +56,7 @@ $env:EDITOR="code --wait"
 
 if (Test-Path alias:rp)
 {
-	del alias:rp -Force
+	Remove-Item alias:rp -Force
 }
 
 Add-Path -Directory "$toolsRoot/hugo"
