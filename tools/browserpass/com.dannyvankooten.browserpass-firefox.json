@@ -1,9 +1,0 @@
-﻿{
-  "name": "com.dannyvankooten.browserpass",
-  "description": "Browserpass binary for the Firefox extension",
-  "path": "c:\\git\\dotfiles\\browserpass\\browserpass-windows64.exe",
-  "type": "stdio",
-  "allowed_extensions": [
-    "browserpass@maximbaz.com"
-  ]
-}
